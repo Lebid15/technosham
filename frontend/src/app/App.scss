@@ -1,0 +1,166 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* === Plugin styles === */
+
+@import "~react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+@import '~react-circular-progressbar/dist/styles.css';
+
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+@import "../assets/styles/variables";
+@import "~compass-mixins/lib/compass";
+@import "~compass-mixins/lib/animate";
+@import "~bootstrap/scss/bootstrap";
+@import "../assets/styles/fonts";
+@import "../assets/styles/functions";
+
+/* === Icon fonts === */
+@import "~@mdi/font/scss/materialdesignicons";
+@import "~flag-icon-css/sass/flag-icon";
+
+
+/* === Template mixins === */
+@import "../assets/styles/mixins/animation";
+@import "../assets/styles/mixins/buttons";
+@import "../assets/styles/mixins/misc";
+@import "../assets/styles/mixins/color-functions";
+@import "../assets/styles/mixins/cards";
+@import "../assets/styles/mixins/blockqoute";
+
+
+/* === Core Styles === */
+@import "../assets/styles/background";
+@import "../assets/styles/typography";
+@import "../assets/styles/reset";
+@import "../assets/styles/responsive";
+@import "../assets/styles/misc";
+@import "../assets/styles/utilities";
+@import "../assets/styles/demo";
+@import "../assets/styles/spinner";
+@import "../assets/styles/dashboard";
+
+/* === Components === */
+
+@import "../assets/styles/components/forms";
+@import "../assets/styles/components/checkbox-radio";
+@import "../assets/styles/components/icons";
+@import "../assets/styles/components/tables";
+@import "../assets/styles/components/buttons";
+@import "../assets/styles/components/breadcrumbs";
+@import "../assets/styles/components/cards";
+@import "../assets/styles/components/preview";
+@import "../assets/styles/components/bootstrap-progress";
+@import "../assets/styles/components/lists";
+@import "../assets/styles/components/tabs";
+@import "../assets/styles/components/dropdowns";
+@import "../assets/styles/components/loaders/loaders";
+@import "../assets/styles/components/spinner";
+
+@import "../assets/styles/components/landing-screens/auth";
+
+/* === Layout === */
+@import "../assets/styles/navbar";
+@import "../assets/styles/sidebar";
+@import "../assets/styles/footer";
+@import "../assets/styles/layout";
+@import "../assets/styles/settings-panel";
+
+/* === Dark Theme (basic) === */
+body.dark {
+	background: #121212;
+	color: #e0e0e0;
+}
+body.dark .navbar, body.dark .sidebar, body.dark .card, body.dark .footer {
+	background: #1e1e1e;
+	color: #f0f0f0;
+}
+body.dark .navbar .navbar-brand.text-logo { color:#f5f5f5; }
+body.dark .navbar .navbar-brand.text-logo-mini { color:#fafafa; }
+body.dark .navbar .nav-link, body.dark .navbar .menu-title { color:#e2e2e2 !important; }
+body.dark .navbar .nav-link:hover { color:#ffffff !important; }
+body.dark .navbar .dropdown-menu { background:#232323; }
+body.dark .navbar .dropdown-item { color:#e0e0e0; }
+body.dark .navbar .dropdown-item:hover { background:#2d2d2d; color:#fff; }
+body.dark .navbar .dropdown-menu.navbar-dropdown { border:1px solid #2e2e2e; box-shadow:0 6px 18px rgba(0,0,0,0.6); }
+body.dark .navbar .dropdown-menu.navbar-dropdown .dropdown-item { background:transparent; }
+body.dark .navbar .dropdown-menu.navbar-dropdown .dropdown-item + .dropdown-divider { border-top:1px solid #363636; }
+body.dark .navbar .dropdown-menu.navbar-dropdown .dropdown-item i { color:#b0b0b0; }
+body.dark .navbar .dropdown-menu.navbar-dropdown .dropdown-item:hover i { color:#fff; }
+body.dark .navbar .dropdown-toggle:after { color:#cfcfcf; }
+body.dark .navbar .nav-language-text p,
+body.dark .navbar .nav-profile-text p { color:#e6e6e6 !important; }
+/* Themed brand background */
+body.dark .navbar .navbar-brand-wrapper { background: linear-gradient(135deg,#1f2630 0%, #222c38 60%, #253341 100%); }
+body.dark .navbar .navbar-brand.text-logo { letter-spacing:1px; }
+body.dark .nav .nav-item .nav-link, body.dark a { color: #cfcfcf; }
+body.dark .nav .nav-item.active > .nav-link { background: #272727; color: #fff; }
+body.dark .menu-title { color: #ddd; }
+body.dark .sidebar .nav .nav-item .menu-icon { color: #bbb; }
+body.dark .card { border-color: #2a2a2a; }
+body.dark .btn-primary { background:#2962ff; border-color:#2962ff; }
+body.dark .btn-outline-primary { border-color:#2962ff; color:#82b1ff; }
+/* Brand base styles */
+.navbar-brand.text-logo { font-weight:600; font-size:20px; color:#222; letter-spacing:.5px; text-decoration:none; }
+.navbar-brand.text-logo-mini { font-weight:700; font-size:18px; color:#222; text-decoration:none; }
+body.dark .navbar-brand.text-logo, body.dark .navbar-brand.text-logo-mini { text-shadow:0 0 4px rgba(255,255,255,0.1); }
+body.dark .navbar-brand.text-logo:hover, body.dark .navbar-brand.text-logo-mini:hover { color:#fff; }
+body.dark .content-wrapper { background:#161616; }
+body.dark .search-field .input-group { background:#222 !important; }
+body.dark .search-field input { color:#ddd; }
+body.dark .search-field input::placeholder { color:#888; }
+
+/* === Mobile compact adjustments === */
+@media (max-width: 576px) {
+	/* تقليل الهوامش الأفقية أكثر */
+	.content-wrapper {
+		padding: .35rem .35rem 0 .35rem !important; /* كان .75rem */
+	}
+	.content-wrapper .card { margin-left: 0; margin-right: 0; }
+	/* تصغير الحواف الداخلية للكارد الكبير مع إبقاء مساحة بسيطة للنص */
+	.content-wrapper .card-body.py-5 {
+		padding-top: 1.75rem !important;
+		padding-bottom: 1.75rem !important;
+		padding-left: .75rem !important;
+		padding-right: .75rem !important;
+	}
+}
+
+/* === Dark mode specific fix: About page heading/text === */
+body.dark .card .card-title, 
+body.dark .card .card-text {
+	color:#e8e8e8 !important;
+}
+
+/* === Dark mode: darker background for elements using .bg-light (dashboard tiles etc.) === */
+body.dark .bg-light {
+	background:#2b2f33 !important; /* was light gray; make darker in dark mode */
+	color:#d3d3d3;
+	border-color:#333 !important;
+}
+body.dark .bg-light h5,
+body.dark .bg-light p { color:#d5d5d5 !important; }
+
+/* === Sidebar font weight adjustments (make less bold) === */
+.sidebar .nav .nav-item .menu-title { font-weight:500; }
+.sidebar .nav .nav-item.active > .nav-link .menu-title { font-weight:600; }
+body.rtl .sidebar .nav .nav-item .menu-title { font-weight:500; }
+
+/* Pricing layout */
+.pricing-box { background:#fafafa; }
+body.dark .pricing-box { background:#1f2225; border-color:#2a2d31; }
+.pricing-box .ribbon { font-size:.65rem; letter-spacing:.5px; text-transform:uppercase; }
+body.dark .pricing-box .ribbon { background:#2962ff !important; }
+
+/* Watan hero image */
+.watan-hero-img { object-fit: cover; min-height:220px; }
+.watan-hero-wrapper { display:block; }
+.watan-hero-text { margin-right:1rem; }
+body.rtl .watan-hero-text { margin-right:0; margin-left:1rem; }
+.watan-hero-image { margin-left:auto; }
+@media (max-width: 767.98px) {
+	.watan-hero-text { margin-right:0; margin-left:0; }
+	body.rtl .watan-hero-text { margin-left:0; }
+}
+body.dark .visit-note { color:#b5c9ff; }
