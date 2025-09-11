@@ -2,10 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTheme } from '../state/theme'
 import { useI18n } from '../state/i18n'
+import { Home, Boxes, Settings, Wrench, Menu as MenuIcon, ChevronDown, PenTool, GraduationCap, Smartphone, Headset, Info } from 'lucide-react'
 
 // Small utility icons
-const ArrowDown = () => <span aria-hidden>▾</span>
-const Hamburger = () => <span aria-hidden>☰</span>
+const ArrowDown = () => <ChevronDown size={16} aria-hidden />
+const Hamburger = () => <MenuIcon size={18} aria-hidden />
 
 // Click outside hook
 function useClickOutside<T extends HTMLElement>(onOutside: () => void) {
@@ -54,31 +55,34 @@ export function Header() {
 
   const items = useMemo(
     () => [
-      { key: 'home', label: `🏠 ${t('home')}`, href: '/' },
+      { key: 'home', label: t('home'), icon: <Home size={16} aria-hidden /> , href: '/' },
       {
         key: 'services',
-        label: `🛠️ ${t('services')}`,
+        label: t('services'),
+        icon: <Wrench size={16} aria-hidden />,
         children: [
-          { key: 'webdev', label: t('webdev'), href: '/services/web-development' },
-          { key: 'design', label: t('design'), href: '/services/graphic-design' },
-          { key: 'training', label: t('training'), href: '/services/training-courses' },
-          { key: 'mobile', label: t('mobile'), href: '/services/mobile-apps' },
-          { key: 'remote_it', label: t('remote_it'), href: '/services/remote-it-support' },
+          { key: 'webdev', label: t('webdev'), icon: <Wrench size={16} aria-hidden />, href: '/services/web-development' },
+          { key: 'design', label: t('design'), icon: <PenTool size={16} aria-hidden />, href: '/services/graphic-design' },
+          { key: 'training', label: t('training'), icon: <GraduationCap size={16} aria-hidden />, href: '/services/training-courses' },
+          { key: 'mobile', label: t('mobile'), icon: <Smartphone size={16} aria-hidden />, href: '/services/mobile-apps' },
+          { key: 'remote_it', label: t('remote_it'), icon: <Headset size={16} aria-hidden />, href: '/services/remote-it-support' },
         ],
       },
       {
         key: 'products',
-        label: `📦 ${t('products')}`,
+        label: t('products'),
+        icon: <Boxes size={16} aria-hidden />,
         children: [
           { key: 'watan', label: t('watan'), href: '/products/watan' },
           { key: 'saas', label: t('saas'), href: '/products/saas-marketplace' },
           { key: 'courses', label: t('courses'), href: '/products/courses' },
         ],
       },
-      { key: 'about', label: t('about'), href: '/about' },
+      { key: 'about', label: t('about'), icon: <Info size={16} aria-hidden />, href: '/about' },
       {
         key: 'settings',
-        label: `⚙️ ${t('settings')}`,
+        label: t('settings'),
+        icon: <Settings size={16} aria-hidden />,
         children: [
           { key: 'theme', label: `${t('theme')}: ${t(theme)}`, action: 'toggleTheme' as const },
           { key: 'language', label: `${t('language')}: ${lang.toUpperCase()}`, action: 'selectLang' as const },
@@ -109,11 +113,18 @@ export function Header() {
                   onClick={() => setOpenDropdown(openDropdown === it.key ? null : it.key)}
                   aria-expanded={openDropdown === it.key}
                 >
-                  <span>{it.label}</span> <ArrowDown />
+                  <span style={{display:'inline-flex',alignItems:'center',gap:6}}>
+                    {it.icon}
+                    {it.label}
+                  </span>
+                  <ArrowDown />
                 </button>
               ) : (
                 <NavLink to={it.href!} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                  {it.label}
+                  <span style={{display:'inline-flex',alignItems:'center',gap:6}}>
+                    {it.icon}
+                    {it.label}
+                  </span>
                 </NavLink>
               )}
               {it.children && (

@@ -1,0 +1,53 @@
+# --- General ---
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+*.pid
+
+# --- Node / Vite / React (frontend) ---
+/frontend/node_modules/
+/frontend/.cache/
+/frontend/.vite/
+/frontend/dist/
+/frontend/coverage/
+/frontend/.env
+/frontend/.env.*
+
+# --- Python / Django (backend) ---
+/backend/__pycache__/
+/backend/**/*.pyc
+/backend/.venv/
+/backend/venv/
+/backend/env/
+/backend/.env
+/backend/.env.*
+/backend/*.sqlite3
+/backend/db.sqlite3
+/backend/staticfiles/
+/backend/media/
+
+# --- Python (root/global) ---
+/.venv/
+/venv/
+/env/
+**/__pycache__/
+**/*.py[cod]
+
+# --- IDE / Editor ---
+.vscode/
+*.code-workspace
+.idea/
+*.iml
+
+# --- OS junk ---
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# --- Coverage / tests ---
+/.pytest_cache/
+/.coverage*
+/coverage/

@@ -19,7 +19,7 @@ const DEFAULTS: Record<Lang, Dict> = {
     theme: 'Theme', language: 'Language', light: 'Light', dark: 'Dark'
   },
   ar: {
-    home: 'الصفحة الرئيسية', services: 'الخدمات', products: 'المنتجات', about: 'من نحن - تكنوشام', settings: 'الإعدادات',
+  home: 'الصفحة الرئيسية', services: 'الخدمات', products: 'المنتجات', about: 'عن تكنوشام', settings: 'الإعدادات',
     webdev: 'تطوير الويب', design: 'التصميم الجرافيكي', training: 'الدورات التدريبية', mobile: 'تطبيقات الهواتف', remote_it: 'الدعم الفني عن بُعد',
     watan: 'منصة وطن لشحن التطبيقات والألعاب', saas: 'سوق البرمجيات كخدمة', courses: 'الدورات',
     theme: 'السمة', language: 'اللغة', light: 'فاتح', dark: 'داكن'
