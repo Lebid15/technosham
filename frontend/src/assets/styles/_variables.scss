@@ -319,7 +319,7 @@ $breadcrumb-item-bg:                #dbe3e6;
 
 ////////// MODALS VARIABLES //////////
 
-$modal-inner-padding:               15px;
+$modal-inner-padding:               0.9375rem; // 15px converted to rem to match Bootstrap rem calculations
 $modal-dialog-margin:               10px;
 $modal-dialog-margin-y-sm-up:       30px;
 $modal-title-line-height:           $line-height-base;

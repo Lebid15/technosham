@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+from .models import AboutPage
 
 # In-memory settings (for demo)
 STATE = {
@@ -131,3 +132,16 @@ def settings_view(request):
             STATE["lang"] = lang
         return JsonResponse(STATE)
     return JsonResponse({"error": "method not allowed"}, status=405)
+
+
+def about_view(request):
+    lang = request.GET.get("lang", STATE.get("lang", "en"))
+    page = AboutPage.objects.order_by('-updated_at').first()
+    if not page:
+        return JsonResponse({"title": "", "content": "", "lang": lang})
+    localized_title, localized_content = page.get_localized(lang)
+    return JsonResponse({
+        "title": localized_title or "",
+        "content": localized_content or "",
+        "lang": lang,
+    })

@@ -8,6 +8,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
+    # Jazzmin must precede django.contrib.admin
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -68,3 +70,34 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CORS for local dev
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Jazzmin basic customization (can be expanded later)
+JAZZMIN_SETTINGS = {
+    "site_title": "Technosham Admin",
+    "site_header": "Technosham",
+    "welcome_sign": "Welcome to Technosham",
+    "copyright": "Technosham",
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": ["auth", "main"],
+    "show_sidebar": True,
+    "navigation_expanded": False,
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-user-group",
+    },
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {"auth.user": "collapsible"},
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",  # Bootswatch theme
+    "dark_mode_theme": "darkly",
+    "navbar": "navbar-dark bg-primary",
+    "sidebar": "sidebar-dark-primary",
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-outline-secondary",
+    },
+}
