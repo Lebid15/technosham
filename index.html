@@ -8,16 +8,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ملمس ورقي (Grain) -->
+  <!-- خلفية حيّة -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+  </div>
   <div class="grain" aria-hidden="true"></div>
-  <!-- مؤشر تفاعلي -->
   <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
   <!-- شريط التنقّل -->
   <header class="navbar" id="navbar">
@@ -31,8 +35,8 @@
         <a href="#home">الرئيسية</a>
         <a href="#about">من نحن</a>
         <a href="#services">خدماتنا</a>
+        <a href="#process">كيف نعمل</a>
         <a href="#projects">أعمالنا</a>
-        <a href="#testimonials">الآراء</a>
         <a href="#contact" class="nav-cta">لنتحدّث ↗</a>
       </nav>
 
@@ -44,45 +48,73 @@
 
   <!-- الواجهة الرئيسية -->
   <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-top reveal">
-        <span class="pill"><i class="dot"></i> متاحون لمشاريع جديدة</span>
-        <span class="hero-index">استوديو رقمي — منذ ٢٠٢١</span>
-      </div>
-
-      <h1 class="hero-title">
-        <span class="line reveal">نصنع مواقع</span>
-        <span class="line reveal"><span class="outline">تُبهر</span> من</span>
-        <span class="line reveal">يراها <span class="blue">للوهلة الأولى</span></span>
-      </h1>
-
-      <div class="hero-bottom">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="pill reveal"><i class="dot"></i> متاحون لمشاريع جديدة</span>
+        <h1 class="hero-title reveal">
+          نصمّم ونبرمج مواقع
+          <span class="blue">تُبهر عملاءك</span>
+          من أول نظرة.
+        </h1>
         <p class="hero-sub reveal">
           استوديو <b>تكنو شام</b> يحوّل أفكارك إلى تجارب رقمية بسيطة وأنيقة —
-          نصمّم ونبرمج أي موقع تحتاجه، بذوقٍ عالٍ وأداءٍ لا يخذلك.
+          أي موقع تحتاجه، بذوقٍ عالٍ وأداءٍ لا يخذلك.
         </p>
         <div class="hero-actions reveal">
           <a href="#contact" class="btn btn-primary">ابدأ مشروعك <span>↗</span></a>
           <a href="#projects" class="btn btn-ghost">تصفّح أعمالنا</a>
         </div>
+        <div class="hero-stats reveal">
+          <div><b data-count="30">0</b><span>مشروع منجز</span></div>
+          <div class="divider"></div>
+          <div><b data-count="25">0</b><span>عميل سعيد</span></div>
+          <div class="divider"></div>
+          <div><b data-count="4">0</b><span>سنوات خبرة</span></div>
+        </div>
       </div>
 
-      <!-- شارة دوّارة -->
-      <a href="#about" class="badge" aria-label="اكتشف المزيد">
-        <svg viewBox="0 0 100 100">
-          <defs>
-            <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-          </defs>
-          <text>
-            <textPath href="#circlePath">تصميم • برمجة • إبداع • تكنو شام • </textPath>
-          </text>
-        </svg>
-        <span class="badge-arrow">↓</span>
-      </a>
+      <!-- نموذج متصفح متحرك -->
+      <div class="hero-visual reveal">
+        <div class="mockup">
+          <div class="mockup-bar">
+            <i></i><i></i><i></i>
+            <div class="mockup-url">technosham.com</div>
+          </div>
+          <div class="mockup-screen">
+            <div class="m-nav">
+              <span class="m-logo"></span>
+              <span class="m-links"><i></i><i></i><i></i></span>
+            </div>
+            <div class="m-hero">
+              <div class="m-hero-text">
+                <span class="m-line w80"></span>
+                <span class="m-line w60"></span>
+                <span class="m-btn"></span>
+              </div>
+              <div class="m-hero-art"></div>
+            </div>
+            <div class="m-cards">
+              <div class="m-card"></div>
+              <div class="m-card"></div>
+              <div class="m-card"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- بطاقات عائمة -->
+        <div class="float-card fc-1">
+          <span class="fc-icon">★</span>
+          <div><b>٤٫٩ / ٥</b><small>تقييم العملاء</small></div>
+        </div>
+        <div class="float-card fc-2">
+          <span class="fc-icon blue-bg">✓</span>
+          <div><b>تسليم سريع</b><small>في الموعد دائماً</small></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- شريط متحرك -->
+  <!-- شريط الثقة -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <span>تصميم واجهات ✦ متاجر إلكترونية ✦ أنظمة ويب ✦ تطبيقات ✦ هويات بصرية ✦ تحسين محركات البحث ✦</span>
@@ -98,18 +130,14 @@
         <h2>نؤمن أن <span class="blue">البساطة</span> هي قمّة الأناقة.</h2>
       </div>
       <div class="about-text reveal">
-        <p class="lead">
-          في <b>تكنو شام</b> لا نبني مجرّد مواقع، بل نصنع انطباعاً أول لا يُنسى.
-        </p>
-        <p>
-          نهتمّ بكل تفصيلة — من أول لون تراه إلى آخر زر تضغطه — لنقدّم لك موقعاً
-          يجمع بين الجمال والوضوح والسرعة. تصاميمنا يفهمها الجميع، وتترك أثراً في الجميع.
-        </p>
-        <div class="mini-stats">
-          <div><b data-count="30">0</b><span>مشروع منجز</span></div>
-          <div><b data-count="25">0</b><span>عميل سعيد</span></div>
-          <div><b data-count="4">0</b><span>سنوات خبرة</span></div>
-        </div>
+        <p class="lead">في <b>تكنو شام</b> لا نبني مجرّد مواقع، بل نصنع انطباعاً أوّل لا يُنسى.</p>
+        <p>نهتمّ بكل تفصيلة — من أول لون تراه إلى آخر زر تضغطه — لنقدّم لك موقعاً يجمع بين الجمال والوضوح والسرعة. تصاميمنا يفهمها الجميع، وتترك أثراً في الجميع.</p>
+        <ul class="feature-list">
+          <li><span>✦</span> تصاميم عصرية تترك انطباعاً قوياً</li>
+          <li><span>✦</span> أداء وسرعة تحميل عالية</li>
+          <li><span>✦</span> متوافق مع جميع الأجهزة</li>
+          <li><span>✦</span> دعم وتواصل مستمر بعد التسليم</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -120,33 +148,33 @@
       <div class="section-head reveal">
         <span class="section-tag">٠٢ — خدماتنا</span>
         <h2>ماذا نصنع <span class="blue">لك؟</span></h2>
+        <p class="section-desc">حلول رقمية متكاملة تغطّي كل ما يحتاجه مشروعك.</p>
       </div>
 
-      <div class="services-list">
-        <article class="service reveal">
-          <span class="service-num">01</span>
-          <h3>مواقع تعريفية</h3>
-          <p>موقع أنيق يعرّف بعلامتك التجارية ويحكي قصّتك بأسلوب يجذب العملاء.</p>
-          <span class="service-arrow">↗</span>
-        </article>
-        <article class="service reveal">
-          <span class="service-num">02</span>
-          <h3>متاجر إلكترونية</h3>
-          <p>متجر متكامل بتجربة شراء سلسة، سلّة ذكية، وبوابات دفع آمنة.</p>
-          <span class="service-arrow">↗</span>
-        </article>
-        <article class="service reveal">
-          <span class="service-num">03</span>
-          <h3>أنظمة وتطبيقات ويب</h3>
-          <p>لوحات تحكم وأنظمة إدارة مخصّصة تُدار بسهولة وتناسب عملك تماماً.</p>
-          <span class="service-arrow">↗</span>
-        </article>
-        <article class="service reveal">
-          <span class="service-num">04</span>
-          <h3>تصميم واجهات UI/UX</h3>
-          <p>تصاميم تضع المستخدم أولاً — جميلة، واضحة، وسهلة الاستخدام.</p>
-          <span class="service-arrow">↗</span>
-        </article>
+      <div class="cards-grid">
+        <article class="card reveal"><div class="card-icon">🌐</div><h3>مواقع تعريفية</h3><p>موقع أنيق يعرّف بعلامتك التجارية ويحكي قصّتك بأسلوب يجذب العملاء.</p></article>
+        <article class="card reveal"><div class="card-icon">🛒</div><h3>متاجر إلكترونية</h3><p>متجر متكامل بتجربة شراء سلسة، سلّة ذكية، وبوابات دفع آمنة.</p></article>
+        <article class="card reveal"><div class="card-icon">⚙️</div><h3>أنظمة وتطبيقات</h3><p>لوحات تحكم وأنظمة إدارة مخصّصة تُدار بسهولة وتناسب عملك.</p></article>
+        <article class="card reveal"><div class="card-icon">🎨</div><h3>تصميم UI/UX</h3><p>تصاميم تضع المستخدم أولاً — جميلة، واضحة، وسهلة الاستخدام.</p></article>
+        <article class="card reveal"><div class="card-icon">📱</div><h3>مواقع متجاوبة</h3><p>موقعك يعمل بشكل مثالي على الجوال والتابلت والكمبيوتر.</p></article>
+        <article class="card reveal"><div class="card-icon">🚀</div><h3>تحسين وسرعة (SEO)</h3><p>نحسّن موقعك لمحركات البحث ونرفع سرعته لأقصى حد.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- كيف نعمل -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">٠٣ — كيف نعمل</span>
+        <h2>رحلة بسيطة من <span class="blue">الفكرة إلى الإطلاق</span></h2>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal"><span class="step-num">١</span><h3>نستمع</h3><p>نفهم فكرتك وأهدافك وجمهورك بدقّة قبل أي شيء.</p></div>
+        <div class="step reveal"><span class="step-num">٢</span><h3>نصمّم</h3><p>نرسم تصميماً أنيقاً يعكس هويتك ويأخذ موافقتك.</p></div>
+        <div class="step reveal"><span class="step-num">٣</span><h3>نبرمج</h3><p>نحوّل التصميم إلى موقع سريع ونظيف يعمل بلا عيوب.</p></div>
+        <div class="step reveal"><span class="step-num">٤</span><h3>نُطلق</h3><p>نطلق موقعك ونبقى بجانبك بالدعم والتطوير المستمر.</p></div>
       </div>
     </div>
   </section>
@@ -155,40 +183,32 @@
   <section class="section" id="projects">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-tag">٠٣ — أعمالنا</span>
+        <span class="section-tag">٠٤ — أعمالنا</span>
         <h2>مشاريع نفخر <span class="blue">بها</span></h2>
       </div>
 
       <div class="projects-grid">
         <article class="project reveal">
-          <div class="project-thumb"><span>🛍️</span></div>
+          <div class="project-thumb"><div class="pt-window"><i></i><i></i><i></i></div><span>🛍️</span></div>
           <div class="project-meta">
-            <div>
-              <h3>متجر إلكتروني</h3>
-              <p>متجر متكامل لبيع المنتجات مع نظام دفع وإدارة طلبات.</p>
-            </div>
+            <h3>متجر إلكتروني</h3>
+            <p>متجر متكامل لبيع المنتجات مع نظام دفع وإدارة طلبات.</p>
             <div class="tags"><span>تصميم</span><span>برمجة</span></div>
           </div>
         </article>
-
         <article class="project reveal">
-          <div class="project-thumb alt"><span>📊</span></div>
+          <div class="project-thumb alt"><div class="pt-window"><i></i><i></i><i></i></div><span>📊</span></div>
           <div class="project-meta">
-            <div>
-              <h3>لوحة تحكم إدارية</h3>
-              <p>نظام إدارة بيانات مع رسوم بيانية وتقارير مباشرة.</p>
-            </div>
+            <h3>لوحة تحكم إدارية</h3>
+            <p>نظام إدارة بيانات مع رسوم بيانية وتقارير مباشرة.</p>
             <div class="tags"><span>نظام</span><span>API</span></div>
           </div>
         </article>
-
         <article class="project reveal">
-          <div class="project-thumb alt2"><span>🌐</span></div>
+          <div class="project-thumb alt2"><div class="pt-window"><i></i><i></i><i></i></div><span>🌐</span></div>
           <div class="project-meta">
-            <div>
-              <h3>موقع تعريفي لشركة</h3>
-              <p>موقع عصري يعرّف بخدمات الشركة ويجذب العملاء الجدد.</p>
-            </div>
+            <h3>موقع تعريفي لشركة</h3>
+            <p>موقع عصري يعرّف بخدمات الشركة ويجذب العملاء الجدد.</p>
             <div class="tags"><span>UI/UX</span><span>ويب</span></div>
           </div>
         </article>
@@ -200,34 +220,25 @@
   <section class="section" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-tag">٠٤ — الآراء</span>
+        <span class="section-tag">٠٥ — الآراء</span>
         <h2>ماذا قال <span class="blue">عملاؤنا؟</span></h2>
       </div>
 
       <div class="testi-grid">
         <article class="testimonial reveal">
-          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
           <p class="quote">موقع رائع وسريع، والتعامل كان احترافياً من البداية للنهاية. أنصح به بشدّة.</p>
-          <div class="author">
-            <div class="avatar">أ</div>
-            <div><b>أحمد الشمري</b><span>صاحب متجر إلكتروني</span></div>
-          </div>
+          <div class="author"><div class="avatar">أ</div><div><b>أحمد الشمري</b><span>صاحب متجر إلكتروني</span></div></div>
         </article>
         <article class="testimonial reveal">
-          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
           <p class="quote">نفّذوا لي موقع شركتي بتصميم مبهر فاق توقعاتي، والتسليم كان في الموعد.</p>
-          <div class="author">
-            <div class="avatar">س</div>
-            <div><b>سارة عبدالله</b><span>مديرة تسويق</span></div>
-          </div>
+          <div class="author"><div class="avatar">س</div><div><b>سارة عبدالله</b><span>مديرة تسويق</span></div></div>
         </article>
         <article class="testimonial reveal">
-          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
           <p class="quote">أفضل فريق تعاملت معه — يفهمون ما تريده بسرعة ويقدّمون حلولاً ذكية.</p>
-          <div class="author">
-            <div class="avatar">م</div>
-            <div><b>محمد العتيبي</b><span>رائد أعمال</span></div>
-          </div>
+          <div class="author"><div class="avatar">م</div><div><b>محمد العتيبي</b><span>رائد أعمال</span></div></div>
         </article>
       </div>
     </div>
@@ -237,23 +248,14 @@
   <section class="section contact" id="contact">
     <div class="container">
       <div class="contact-box reveal">
-        <span class="section-tag">٠٥ — لنتحدّث</span>
-        <h2>لديك فكرة؟<br><span class="blue">لنحوّلها إلى واقع.</span></h2>
+        <span class="section-tag">٠٦ — لنتحدّث</span>
+        <h2>لديك فكرة؟ <span class="blue">لنحوّلها إلى واقع.</span></h2>
         <p class="section-desc">أخبرنا عن مشروعك وسنعود إليك في أسرع وقت.</p>
 
         <div class="contact-info">
-          <a href="https://wa.me/9665XXXXXXXX" class="info-item" target="_blank" rel="noopener">
-            <span class="info-icon">💬</span>
-            <span>واتساب<br><b>‎+966 5XX XXX XXX</b></span>
-          </a>
-          <a href="mailto:info@technosham.com" class="info-item">
-            <span class="info-icon">✉️</span>
-            <span>البريد<br><b>info@technosham.com</b></span>
-          </a>
-          <a href="tel:+9665XXXXXXXX" class="info-item">
-            <span class="info-icon">📞</span>
-            <span>الهاتف<br><b>‎+966 5XX XXX XXX</b></span>
-          </a>
+          <a href="https://wa.me/9665XXXXXXXX" class="info-item" target="_blank" rel="noopener"><span class="info-icon">💬</span><span>واتساب<br><b>‎+966 5XX XXX XXX</b></span></a>
+          <a href="mailto:info@technosham.com" class="info-item"><span class="info-icon">✉️</span><span>البريد<br><b>info@technosham.com</b></span></a>
+          <a href="tel:+9665XXXXXXXX" class="info-item"><span class="info-icon">📞</span><span>الهاتف<br><b>‎+966 5XX XXX XXX</b></span></a>
         </div>
 
         <div class="contact-actions">
