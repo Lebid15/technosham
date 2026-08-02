@@ -371,7 +371,55 @@ ul { list-style: none; }
 .project-link { color: var(--secondary); font-weight: 700; }
 .project-link:hover { color: var(--accent); }
 
+/* ---------- آراء العملاء ---------- */
+.testimonial {
+  padding: 30px 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.testimonial:hover { transform: translateY(-6px); border-color: rgba(236, 72, 153, 0.5); }
+.testimonial .quote { color: var(--text); font-size: 1.02rem; margin-bottom: 22px; }
+.testimonial .author { display: flex; align-items: center; gap: 14px; }
+.avatar {
+  width: 52px; height: 52px;
+  flex: none;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+}
+.testimonial .author b { display: block; }
+.testimonial .author span { color: var(--muted); font-size: 0.88rem; }
+.testimonial .stars { color: #fbbf24; margin-top: 14px; letter-spacing: 3px; }
+
 /* ---------- التواصل ---------- */
+.contact-info {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-align: right;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.info-item:hover { border-color: var(--secondary); transform: translateY(-3px); }
+.info-item .info-icon { font-size: 1.4rem; }
+.info-item b { color: var(--secondary); font-size: 0.92rem; }
+
 .contact-box {
   text-align: center;
   max-width: 720px;
