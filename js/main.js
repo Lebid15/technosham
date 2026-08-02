@@ -85,6 +85,38 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   document.querySelectorAll('[data-count]').forEach((el) => countIO.observe(el));
 
+  /* ---- تأثير العمق مع حركة الماوس (Parallax) ---- */
+  const orbs = document.querySelector('.bg-orbs');
+  const heroVisual = document.querySelector('.hero-visual');
+  if (window.matchMedia('(hover: hover)').matches && (orbs || heroVisual)) {
+    let tx = 0, ty = 0, ox = 0, oy = 0;
+    window.addEventListener('mousemove', (e) => {
+      tx = (e.clientX / window.innerWidth - 0.5);
+      ty = (e.clientY / window.innerHeight - 0.5);
+    });
+    const loop = () => {
+      ox += (tx - ox) * 0.06;
+      oy += (ty - oy) * 0.06;
+      if (orbs) orbs.style.transform = `translate(${ox * -40}px, ${oy * -40}px)`;
+      if (heroVisual) heroVisual.style.transform = `translate(${ox * 26}px, ${oy * 26}px)`;
+      requestAnimationFrame(loop);
+    };
+    loop();
+  }
+
+  /* ---- أزرار مغناطيسية ---- */
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.btn').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const mx = e.clientX - r.left - r.width / 2;
+        const my = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${mx * 0.25}px, ${my * 0.35}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
   /* ---- المؤشر التفاعلي (سطح المكتب فقط) ---- */
   const cursor = document.getElementById('cursor');
   if (cursor && window.matchMedia('(hover: hover)').matches) {
