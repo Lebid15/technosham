@@ -1,36 +1,44 @@
-# Technosham 🚀
+# تكنو شام 🚀
 
-موقع شخصي (Portfolio) لعرض المشاريع البرمجية والإعلان عن خدمات تصميم وبرمجة المواقع.
+موقع شخصي (Portfolio) + لوحة تحكم لاستوديو تصميم وبرمجة المواقع، بتصميم **زمرّدي + عاجي** أنيق ينبض بالحياة.
 
-تصميم **داكن + نيون متوهّج**، بسيط في الاستخدام وجميل في الشكل، بدعم كامل للغة العربية (RTL).
-
-## 🧩 المرحلة الحالية
-موقع ثابت (Static) مبني بـ **HTML + CSS + JS** فقط — بدون أي مكتبات خارجية.
+## بنية المشروع
 
 ```
 technosham/
-├── index.html      # الصفحة الرئيسية
-├── css/style.css   # التنسيقات
-├── js/main.js      # التفاعلات
-├── info.md         # معلومات المشروع
-├── plan.md         # خطة التطوير
-└── README.md
+├── index.html, css/, js/   # النسخة الثابتة (تعمل على GitHub Pages حالياً)
+├── backend/                # Django + DRF — API ولوحة الإدارة  (المرحلة 2)
+├── frontend/               # Next.js 14 — الموقع العام + لوحة التحكم (المرحلة 2)
+├── info.md                 # معلومات المشروع
+└── plan.md                 # خطة التطوير
 ```
 
-## 👀 المعاينة محلياً
-افتح `index.html` مباشرةً في المتصفح، أو شغّل خادماً بسيطاً:
+## المرحلة 1 — موقع ثابت (منشور حالياً)
+موقع `HTML + CSS + JS` بسيط وجميل، منشور على GitHub Pages.
+افتح `index.html` مباشرةً، أو شغّل: `python3 -m http.server 8000`.
 
+## المرحلة 2 — Django + Next.js + لوحة تحكم ✅
+النسخة الكاملة الديناميكية:
+
+- **الخلفية** (`backend/`): Django REST Framework + JWT، تدير المحتوى والمظهر،
+  و**API مفتوح** لربط مواقعك الأخرى ورؤية إحصائياتها في لوحة موحّدة.
+- **الواجهة** (`frontend/`): Next.js — الموقع العام (يُبنى من الـ API) + **لوحة تحكم**
+  احترافية فيها زر **«المظهر»** لتغيير الألوان والخط والحجم مع معاينة حيّة.
+
+### تشغيل سريع للنسخة الكاملة
 ```bash
-python3 -m http.server 8000
-# ثم افتح http://localhost:8000
+# 1) الخلفية
+cd backend && python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt && python manage.py migrate && python manage.py seed
+python manage.py runserver           # http://localhost:8000
+
+# 2) الواجهة (نافذة طرفية أخرى)
+cd frontend && npm install && npm run dev   # http://localhost:3000
 ```
+المشرف الافتراضي للوحة التحكم: **admin / admin12345** (غيّرها لاحقاً).
 
-## 🌐 النشر على GitHub Pages
-1. ادخل إلى **Settings → Pages** في المستودع.
-2. اختر الفرع (Branch) الذي يحتوي على الكود، والمجلد `/ (root)`.
-3. احفظ، وسيصبح الموقع متاحاً خلال دقائق على رابط `https://<username>.github.io/technosham/`.
+التفاصيل الكاملة في [`backend/README.md`](./backend/README.md) و [`frontend/README.md`](./frontend/README.md).
 
-> ملف `.nojekyll` مضاف لضمان عرض جميع الملفات بشكل صحيح.
-
-## 🔮 المرحلة القادمة
-تحويل المشروع إلى **Django (خلفية) + Next.js (واجهة)** — التفاصيل في [`plan.md`](./plan.md).
+## النشر
+- **المرحلة 1:** GitHub Pages (Settings → Pages → الفرع + `/root`).
+- **المرحلة 2:** الواجهة على Vercel، والخلفية+قاعدة البيانات على Render/Railway (مجاناً).
