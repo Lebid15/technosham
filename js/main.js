@@ -1,5 +1,5 @@
 /* ============================================
-   Technosham — التفاعلات
+   تكنو شام — التفاعلات
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,11 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- تغيير شريط التنقّل عند التمرير ---- */
   const navbar = document.getElementById('navbar');
   const onScroll = () => {
-    if (window.scrollY > 30) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
   };
   onScroll();
-  window.addEventListener('scroll', onScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ---- قائمة الجوال ---- */
   const menuToggle = document.getElementById('menuToggle');
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
 
   /* ---- أنيميشن الظهور عند التمرير ---- */
-  const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -41,12 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.12 }
   );
-  revealEls.forEach((el) => io.observe(el));
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
   /* ---- عدّاد الأرقام ---- */
-  const counters = document.querySelectorAll('[data-count]');
   const countIO = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -70,36 +67,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     { threshold: 0.5 }
   );
-  counters.forEach((el) => countIO.observe(el));
+  document.querySelectorAll('[data-count]').forEach((el) => countIO.observe(el));
 
-  /* ---- تأثير الكتابة في الواجهة ---- */
-  const typedEl = document.getElementById('typed');
-  if (typedEl) {
-    const words = ['يجذب عملاءك', 'يبيع منتجاتك', 'يبهر زوّارك', 'ينمّي أعمالك'];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-    const type = () => {
-      const word = words[wordIndex];
-      if (deleting) {
-        charIndex--;
-      } else {
-        charIndex++;
-      }
-      typedEl.textContent = word.substring(0, charIndex);
-
-      let delay = deleting ? 55 : 110;
-      if (!deleting && charIndex === word.length) {
-        delay = 1600;
-        deleting = true;
-      } else if (deleting && charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        delay = 400;
-      }
-      setTimeout(type, delay);
+  /* ---- المؤشر التفاعلي (سطح المكتب فقط) ---- */
+  const cursor = document.getElementById('cursor');
+  if (cursor && window.matchMedia('(hover: hover)').matches) {
+    let x = 0, y = 0, cx = 0, cy = 0;
+    window.addEventListener('mousemove', (e) => {
+      x = e.clientX; y = e.clientY;
+      cursor.style.opacity = '1';
+    });
+    const render = () => {
+      cx += (x - cx) * 0.18;
+      cy += (y - cy) * 0.18;
+      cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+      requestAnimationFrame(render);
     };
-    type();
+    render();
+
+    const hoverables = document.querySelectorAll('a, button, .service, .project, .testimonial');
+    hoverables.forEach((el) => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
   }
 });
